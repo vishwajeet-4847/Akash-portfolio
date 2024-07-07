@@ -50,7 +50,7 @@ body{
 }
 @media screen and (min-width: 768px){
     .section-title{
-         font-size: 2.5rem;
+         font-size: 2rem;
      }
     
 }
@@ -126,8 +126,9 @@ iframe{
     .videos-section{
         display: grid;
         grid-template-columns: repeat(
-            auto-fit, minmax(380px, 1fr));
+            auto-fit, minmax(340px, 1fr));
             justify-content: center;
+            width: 100%;
     }
     
     .section-title, .load-more-btn{
@@ -145,6 +146,11 @@ iframe{
        
     }
     
+}
+.main-carousel{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
 }
 
 /* carosuel effect */
