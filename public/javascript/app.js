@@ -30,39 +30,8 @@ document.addEventListener("click",(e)=>{
   }}
 });
 
-let slider=(name,len)=>{
-    let prev = document.querySelector(`.${name} .carosoul-left` );
-    let nxt = document.querySelector(`.${name} .carosoul-right` );
-    let vidsec = document.querySelector(`.${name} .videos-section`);
-    let current=0;
-    console.log("hello");
-    nxt.addEventListener("click",(e)=>{
-         if(current<len-1){
-            current++;
-            vidsec.style.transform=`translateX(-375.6px)`;
-         }
-         else{
-            current=0;
-            vidsec.style.transform=`scaleX(-1)`;
-         }
-
-    });
-    prev.addEventListener("click",(e)=>{
-         if(current>0){
-            current--;
-            vidsec.style.transform=`translateX(375.6px)`;
-         }
-         else{
-            current=len-1;
-            vidsec.style.transform=`scaleX(1)`;
-         }
-    });
-
-}
 
 
-
-slider("carousel-1",5);
 
 
 
