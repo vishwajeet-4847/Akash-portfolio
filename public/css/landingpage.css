@@ -92,6 +92,7 @@ header{
     background-color: rgb(134, 35, 35);
     color: var(--secondary-text-color);
 }
+
     
 
 
@@ -207,7 +208,24 @@ header{
     animation: show 1s linear 5s 1 backwards;
 }
 
+/* resposive header section */
+
 @media screen and (min-width:1000px) {
+    .btn {
+       
+        width: 12rem;
+       
+        
+    }
+    .hero-text h3 ,.btn,.hero-text p {
+        
+        font-size: 1.5rem;
+    }
+    
+}
+
+/* nav bar */
+@media screen and (min-width:1100px) {
     
     .close-button{
         display: none;
@@ -231,11 +249,12 @@ header{
        padding:0.5rem;
         transition: all 0.2s;
         border-radius: 0.3rem;
+        font-size: 1rem
     }
     .nav-items a:hover{
         text-decoration: underline red;
         background-color: var(--transparent-hover-bg-color);
-        font-size: 110%;
+        font-size:1.2rem;
         color:green;
         
     }
@@ -244,6 +263,8 @@ header{
     }
 
 }
+
+
 
 
 

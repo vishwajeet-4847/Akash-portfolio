@@ -2,7 +2,22 @@ import express from 'express';
 import bodyParser from 'body-parser';
 import axios from 'axios';
 
+import pg from 'pg';
 
+const db = new pg.Client(
+    {
+        host: 'localhost',
+        user: 'postgres',
+        password: '12345678',
+        database:"Akash",
+        port: 5432
+    }
+);
+db.connect((err)=>{
+    if(err){
+        console.log("something went wrong");
+    }
+});
 
 
 
@@ -83,11 +98,19 @@ app.post("/submit-email", (req, res) => {
 app.post("/contactform", (req, res) => {
     app.use(bodyParser.urlencoded({ extended: true }));
    let  Name = req.body.name;
-   let  msg=req.body.msg;
+   let  msg=req.body.message;
+   let email = req.body.email;
+   let PhoneNumber = req.body.phone
    
     res.render('contact.ejs',{title:"Contact",response:Name} );
+    db.query(`INSERT INTO public.subscribers(
+            "Name", email, mobile, message)
+            VALUES ($1,$2,$3,$4);`,[Name,email,PhoneNumber,msg],(err)=>{
+            console.log("error",err);
+        });
+        
 });
 
-app.listen(port, (req, res) => {
+app.listen(port, (req, res) => {                           
     console.log(`Server is running on port ${port}`);
 });

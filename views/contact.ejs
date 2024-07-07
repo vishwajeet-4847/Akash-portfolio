@@ -1,10 +1,11 @@
 <%- include('partials/header.ejs') %>
 <%- include('partials/navbar.ejs') %>
 <div style="height:7rem;"></div>
-<h1 class="interactive-title section-title">Get in Touch with me</h1>
+<div class="contactpage">
+    <h1 class="interactive-title section-title">Get in Touch with me</h1>
 
 <section class="contact-info section-center">
-    <p>Welcome to my contact page! Feel free to reach out to me through the form below or via my social media channels.</p>
+    <p>Feel free to reach out to me through the form below or via my social media channels.</p>
 </section>
 <section class="contact-form section-center">
     <div id="formResponse"><% if (locals.response) { %>
@@ -17,7 +18,7 @@
 
         <label for="email">Email:</label>
         <input type="text" id="email" name="email">
-        <label for="email">Phone:</label>
+        <label for="phone">Phone:</label>
         <input type="number" id="phone" name="phone">
 
         <label for="message">Message:</label>
@@ -28,6 +29,7 @@
     
 </section>
 
+</div>
 
 
 <script>

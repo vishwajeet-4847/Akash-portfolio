@@ -20,6 +20,8 @@ body{
   box-shadow: 1px 1px 1px 1px rgba(9, 9, 9, 0.925);
  
 }
+
+/* youtube  creations */
 .img-yt-img{
     width:6rem;
    border-radius: 50%;
@@ -33,7 +35,7 @@ body{
     font-family: "roboto";
     font-size: 1.5rem;
     font-weight: 600;
-    margin-bottom: 0.4rem;
+    margin-bottom: 1.4rem;
 }
 .section-center{
     width:90%;
@@ -43,8 +45,14 @@ body{
     font-family: "roboto";
     font-size: 1.5rem;
     font-weight: 600;
-    margin-bottom: 0.4rem;
+    margin-bottom: 1.4rem;
     text-align: left;
+}
+@media screen and (min-width: 768px){
+    .section-title{
+         font-size: 2.5rem;
+     }
+    
 }
 .youtube-intro{
     justify-content: center;
@@ -56,15 +64,16 @@ body{
 .subscribe-btn{
     margin-top: 2rem;
     width:9rem;
+    font-size: 1rem;
 }
 .videos-section{
   
  
    
-    margin-top: 2rem ;
+  
     margin-bottom: 2rem;
-    border-bottom: 3px solid rgba(9, 9, 9, 0.925);
-    padding: 2rem 0.3rem;
+    
+    padding: 1rem 0.3rem;
 }
 .videos-card{
     display: flex;
@@ -93,6 +102,91 @@ iframe{
 }
 
 
+.direction{
+    position: absolute;
+    color: white;
+    font-size: 3rem;
+    transform: translateY(-50%);
+ opacity: 0;
+ transition: all 0.3s linear;
+        
+}
+.carosoul-left{
+    left: 4%;
+    top:50%;
+}
+.carosoul-right{
+   right: 4%;
+    top:50%;
+}
+
+/* youtube section responsive */
+   
+@media screen and (min-width:500px){
+    .videos-section{
+        display: grid;
+        grid-template-columns: repeat(
+            auto-fit, minmax(380px, 1fr));
+            justify-content: center;
+    }
+    
+    .section-title, .load-more-btn{
+       grid-column: 1/-1;
+    }
+    
+    .load-more-btn{
+        text-align: center;
+    }
+   
+    
+    .img-yt-img {
+        width: 10rem;
+      
+       
+    }
+    
+}
+
+/* carosuel effect */
+@media screen and (min-width:1180px){
+    .section-title{
+        text-align: center !important;
+    }
+    .videos-section{
+        display:inline-flex ;
+        justify-content: flex-start;
+   
+       
+       
+    }
+    .main-carousel{
+        width: 1141.91px;
+        position: relative;
+        margin: auto;
+            
+        overflow: hidden;
+    }
+   
+    .load-more-btn{
+        display: none;
+    }
+    .videos-card{
+        flex: 0 0 350px;
+    }
+   .main-carousel:hover .direction{
+    opacity: 1;
+   }
+   .main-carousel:hover .carosoul-left{
+    left: 0;
+   }
+   .main-carousel:hover .carosoul-right{
+    right: 0;
+   }
+
+}
+    
+
+
 
 
 /* footer */
@@ -101,7 +195,7 @@ iframe{
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    max-width:800px;
+    max-width:1000px;
     margin:auto;
 }
 .main-footer nav{
@@ -164,70 +258,73 @@ footer{
     right:0;
     padding: 5px;
     width:4rem;
-    animation: big-small 1s linear 0ms infinite forwards;
+    animation: big-small 2s linear 0ms infinite alternate-reverse;
 
 }
 #feedback{
     color:red;
 }
-
-
-   
 @media screen and (min-width:500px){
-        .videos-section{
-            display: grid !important;
-            grid-template-columns: repeat(
-                auto-fit, minmax(300px, 1fr));
-                justify-content: center;
-        }
-        
-        .section-title, .load-more-btn{
-           grid-column: 1/-1;
-        }
-        
-        .load-more-btn{
-            text-align: center;
-        }
-        .main-footer{
-            display: grid;
-            grid-template-columns: 1fr 1fr 1fr;
     
-        }
-        .logo-box{
-            grid-row: 1/2;
-    
-        }
-        .subscribe-email-form{
-            grid-column: 2/-1;
-        }
-        .main-footer nav{
-            grid-row: 2;
-            grid-column: 2/-1;
+    .main-footer nav ul li a,.social-menu a{
 
-        }
-        .main-footer nav ul li a{
+        font-size: 1rem;
+       
+    }
+    .main-footer nav ul li a:hover{
+
+        font-size: 1.2rem;
+    }
     
-            font-size: 0.8rem;
-            transition: all 1s;
-        }
-        .main-footer nav ul li a:hover{
+}
+@media screen and (min-width:1000px) {
+    .main-footer{
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr;
+
+    }
+    .logo-box{
+        grid-row: 1/2;
+        width: 10rem;
+
+    }
+    .subscribe-email-form{
+        grid-column: 2/-1;
+    }
+    .subscribe-email-form form input {
+       
+        padding: 0.5rem 2rem;
+        border-radius: 0.7rem;
+       
+    }
+    .subscribe-email-form .btn {
+        width: 12rem;
+        padding: 0.2rem;
+    }
+    .main-footer nav{
+        grid-row: 2;
+        grid-column: 2/-1;
+
+    }
     
-            font-size: 1rem;
-        }
-        
-        .socila-menu{
-            grid-row: 3;
-            grid-column: 3;
+    
+    .socila-menu{
+        grid-row: 3;
+        grid-column: 3;
 grid-column: 2/-1;
 
-        }
-        .copyright{
-            grid-row: 4;
-            grid-column: 1/-1;
-            text-align: center;
-        }
-        
     }
+    .social-menu a{
+        font-size: 1.2rem;
+    }
+    .copyright{
+        grid-row: 4;
+        grid-column: 1/-1;
+        text-align: center;
+        font-size: 1rem;
+    }
+    
+}
 
 @keyframes big-small {
     0%{
@@ -268,6 +365,7 @@ grid-column: 2/-1;
     margin-bottom: 20px;
 }
 
+
 .contact-form {
     
     padding:1.8rem;
@@ -306,6 +404,21 @@ label {
     margin-bottom: 10px;
     border: 1px solid #ccc;
     border-radius: 4px;
+}
+@media screen and (min-width:500px){
+    .interactive-title {
+  
+        font-size: 2rem;
+       
+    }
+    
+    .interactive-title:hover {
+        font-size: 2.8rem;
+    }
+    .contact-info p,label,.contact-form form button{
+        font-size: 1.15rem;
+    }
+    
 }
 
 
@@ -346,16 +459,16 @@ label {
 .card-box{
      display: grid !important;
         grid-template-columns: repeat(
-                auto-fit, minmax(300px, 1fr));
+                auto-fit, minmax(400px, 1fr));
                 justify-content: center;
-                gap:0.5rem;
+                gap:2.5rem;
                 place-items: center;
         }
 
 
 /* skill card */
 .skill-card{
-    max-width: 350px;
+    max-width: 500px;
     min-width: 250px;
     display: flex;
     justify-content: space-between;
@@ -375,13 +488,13 @@ label {
 }
 .skill-card-title{
     font-family: "roboto",sans-serif;
-    font-size: 1.2rem;
+    font-size: 1.6rem;
     padding-left: 2rem;
     color: red;
 
 }
 .skill-card-text{
-    font-size: 1rem;
+    font-size: 1.2rem;
     line-height: 1.2;
     text-align: justify;
     padding: 1rem;
@@ -399,7 +512,7 @@ label {
                 position: relative;
     }
    
-
+   
     .bubble {
         position: absolute;
         bottom: -50%;
@@ -489,6 +602,7 @@ label {
         font-size: 4rem;
         padding: 1rem 0.5rem;
     }
+   
 }
 
 @keyframes rise {
@@ -577,6 +691,8 @@ label {
     display: flex;
     flex-wrap: wrap;
     align-content: center;
+    gap: 1rem ;
+    justify-content:center ;
 }
 .circle-box-collection div{
     width:6.5rem;
@@ -611,6 +727,7 @@ label {
         grid-column: 1;
         align-self: center;
         justify-self: end;
+        width: 17rem;
     }
     .about-text-body{
         grid-column: 2/-1;
@@ -618,6 +735,13 @@ label {
     .circle-box-collection{
         grid-row:2;
         grid-column: 2/-1;
+        gap: 1rem;
+    }
+   .about-text-body h5{
+        font-size: 1.7rem;
+    }
+    .about-text-body p{
+        font-size: 1.3rem;
     }
 }
 .education-card{
@@ -649,3 +773,9 @@ label {
     flex-wrap:wrap ;
     gap:1rem;
 }
+
+
+
+
+
+

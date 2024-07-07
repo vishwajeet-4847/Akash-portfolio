@@ -22,8 +22,10 @@
 </section>
 </div>
 <!-- For you section starts here-->
-<section class="videos-section section-center">
+<section class=" section-center">
     <h2 class="section-title">Videos</h2>
+    <div class="main-carousel carousel-1">
+    <div class="video-card-box videos-section ">
     <div class="videos-card">
         <iframe width="90%" height="315" src="https://www.youtube.com/embed/VxTdzhoDay8?si=1s8gd0Narv0Xx84y" title="YouTube video player" frameborder="0" allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen loading="lazy"></iframe>
 
@@ -61,17 +63,25 @@ Sanam Teri Kasam | viral scene🤍 | Short film #sanamterikasam #shorts #short #
             Dildaara - Dance Cover | Choreography | Akash Kumar</h3>
     </div>
 
-   
     <div class="load-more-btn">
         <a href="/subscribe" class="btn btn-2">See More</a>
     </div>
+</div>
+<div class="carosoul-left direction"><i class="bi bi-arrow-left-circle"></i></div>
+<div class="carosoul-right direction"><i class="bi bi-arrow-right-circle"></i></div>
+</div>
+   
+
+
 </section>
 <!-- For you section end here-->
 <!-- videos  section starts here-->
 
 <!-- videos  section ends here-->
-<section class="videos-section section-center">
+<section class="section-center">
     <h2 class="section-title">For You</h2>
+    <div class="main-carousel carousel-2">
+    <div class="video-card-box videos-section ">
     <div class="videos-card">
         <iframe width="90%" height="315" src="https://www.youtube.com/embed/AKzmueaJ74c?si=wyt1LkVuxwJ47b0Z" title="YouTube video player" frameborder="0" allow="accelerometer;  clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen loading="lazy"></iframe>
         <h3 class="videos-card-title">
@@ -87,11 +97,16 @@ Sanam Teri Kasam | viral scene🤍 | Short film #sanamterikasam #shorts #short #
         <h3 class="videos-card-title">
             Raataan Lambiyan - Pehla Nasha | Mashup song | Dance Choreography | Tera Yaar Akash Kumar</h3>
     </div>
+</div>
+</div>
+
 
 </section>
 <!-- Popular Videos starts here-->
-<section class="videos-section section-center">
+<section class="section-center">
     <h2 class="section-title">Popular Videos</h2>
+    <div class="main-carousel carousel-3">
+    <div class="video-card-box videos-section ">
     <div class="videos-card">
         <iframe width="90%" height="315" src="https://www.youtube.com/embed/VxTdzhoDay8?si=FffTdjVebKVTals8" title="YouTube video player" frameborder="0" allow="accelerometer;  clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen loading="lazy"></iframe>
         <h3 class="videos-card-title">
@@ -125,11 +140,17 @@ Sanam Teri Kasam | viral scene🤍 | Short film #sanamterikasam #shorts #short #
     <div class="load-more-btn">
         <a href="/subscribe" class="btn btn-2">See More</a>
     </div>
+</div>
+<div class="carosoul-left direction"><i class="bi bi-arrow-left-circle"></i></div>
+<div class="carosoul-right direction"><i class="bi bi-arrow-right-circle"></i></div>
+</div>
 </section>
 <!-- Popular Videos ends here-->
 <!-- playlist Videos starts here  -->
-<section class="videos-section section-center">
+<section class="section-center">
     <h2 class="section-title">Playlists</h2>
+    <div class="main-carousel carousel-4">
+  <div class="video-card-box videos-section ">
     <div class="videos-card">
         <iframe width="90%" height="315" src="https://www.youtube.com/embed/videoseries?si=80JWsISs_SjRllLi&amp;list=PLRnMvTnIta9j6XJDpn3BGGrlSIjOeBuLP" title="YouTube video player" frameborder="0" allow="accelerometer;  clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" loading="lazy" allowfullscreen></iframe>
         <h3 class="videos-card-title">
@@ -160,10 +181,60 @@ Sanam Teri Kasam | viral scene🤍 | Short film #sanamterikasam #shorts #short #
         <h3 class="videos-card-title">
             Banaras- Kashi Vlog</h3>
     </div>
+</div>
+<div class="carosoul-left direction"><i class="bi bi-arrow-left-circle"></i></div>
+<div class="carosoul-right direction"><i class="bi bi-arrow-right-circle"></i></div>
+  </div>
 </section>
 <!-- playlist Videos ends here  -->
 
  </main>
+
+ <script>
+
+    function slider(name,length) {
+        let len =length;
+    let prev = document.querySelector(`.${name} .carosoul-left` );
+    let nxt = document.querySelector(`.${name} .carosoul-right` );
+    let vidsec = document.querySelector(`.${name} .videos-section`);
+    let current=0;
+    
+    nxt.addEventListener("click",(e)=>{
+        console.log("hello");
+        current=(current<len-3)?++current:0;
+        console.log(current);
+         vidsec.style.transform=`translateX(${-375.6*current}px)`;
+       
+
+    });
+    prev.addEventListener("click",(e)=>{
+       
+        current=(current>len-2)?--current:len;
+        console.log(current);
+        vidsec.style.transform=`translateX(${-375.6*(current-3)}px)`;
+    });
+
+    }
+   
+ 
+        slider("carousel-1", 6);
+        slider("carousel-3",5 );
+        slider("carousel-4", 6);
+
+        function name(params) {
+            console.log("name");
+            
+        }
+        name();
+  
+
+
+
+
+
+
+
+ </script>
 
 
 
