@@ -31,7 +31,7 @@
 
         </div>
     </section>
-    <section class=" education-section">
+    <section class="education-section">
         <h2 class="section-title section-center">
             My Educational Qualifications
         </h2>
@@ -64,9 +64,83 @@
      
     </section>
 
-
+    <section class="achievement">
+        <h2 class="section-title section-center">
+            Achievement Highlights
+        </h2>
+        <div class="achievement-box-collection section-center">
+            <div class="slider">
+                <article class="img-container slider-img">
+                    <img src="/images/achievment/a13.jpg" alt="achievement" srcset="">
+                </article>
+            <article class="img-container slider-img">
+                <img src="/images/achievment/a11.jpg" alt="achievement" srcset="">
+            </article>
+            <article class="img-container slider-img">
+                <img src="/images/achievment/a10.jpg" alt="achievement" srcset="">
+            </article>
+            <article class="img-container slider-img">
+                <img src="/images/achievment/a3.jpg" alt="achievement" srcset="">
+            </article>
+            <article class="img-container slider-img">
+                <img src="/images/achievment/a4.jpg" alt="achievement" srcset="">
+            </article>
+            <article class="img-container slider-img">
+                <img src="/images/achievment/a5.jpg" alt="achievement" srcset="">
+            </article>
+            <article class="img-container slider-img">
+                <img src="/images/achievment/a6.jpg" alt="achievement" srcset="">
+            </article>
+            <article class="img-container slider-img">
+                <img src="/images/achievment/a7.jpg" alt="achievement" srcset="">
+            </article>
+            <article class="img-container slider-img">
+                <img src="/images/achievment/a8.jpg" alt="achievement" srcset="">
+            </article>
+            <article class="img-container slider-img">
+                <img src="/images/achievment/a9.jpg" alt="achievement" srcset="">
+            </article>
+            <article class="img-container slider-img">
+                <img src="/images/achievment/a3.jpg" alt="achievement" srcset="">
+            </article>
+            <article class="img-container slider-img">
+                <img src="/images/achievment/a1.jpg" alt="achievement" srcset="">
+            </article>
+            <article class="img-container slider-img">
+                <img src="/images/achievment/a2.jpg" alt="achievement" srcset="">
+            </article>
+        </div>
+        </div>
+    </section>
+    
+    
 </main>
 
+<script>
+    // Carousel slider
+    let current=0;
+    const sliderImages = document.querySelectorAll('.slider-img');
+   sliderImages.forEach((slides,index)=>{
+    slides.style.transform=`translateX(${index*100}%)`;
+   });
+
+   let transformfunction = ()=>{
+    if (current <= sliderImages.length-1) {
+        
+        sliderImages.forEach((slides,index)=>{
+           
+            
+    slides.style.transform=`translateX(${(index*100)-(current*100)}%)`;
+   
+   });
+   current++;
+    }else{
+        current=current%sliderImages.length;
+}
+}
+   
+   setInterval(transformfunction,6000)
+</script>
 
 
 <%-include('partials/footer.ejs') %>
