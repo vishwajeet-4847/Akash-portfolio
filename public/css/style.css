@@ -693,3 +693,11 @@ label {
   height: 550px;
   transition: transform 0.8s linear;
 }
+@media screen and (min-width:800px) {
+  .slider-img,.slider {
+    
+    height: 700px;
+    
+  }
+  
+}
