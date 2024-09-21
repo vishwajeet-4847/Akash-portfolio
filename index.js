@@ -108,17 +108,16 @@ app.get('/linkedin', (req, res) => {
 app.post("/submit-email", (req, res) => {
     res.render('home.ejs',{title:"Home"} );
 });
-app.post("/contactform",  (req, res) => {
+app.post("/contactform", (req, res) => {
     app.use(bodyParser.urlencoded({ extended: true }));
    let  Name = req.body.name;
    let  msg=req.body.message;
    let email = req.body.email;
    let PhoneNumber = req.body.phone
-    // SendMail(name, email, message, phoneNumber);
+//    SendMail(name, email, message, phoneNumber);
    
     res.render('contact.ejs',{title:"Contact",response:Name} );
     db.query(`INSERT INTO public.subscribers(
-        
             "Name", email, mobile, message)
             VALUES ($1,$2,$3,$4);`,[Name,email,PhoneNumber,msg],(err)=>{
             console.log("error",err);
