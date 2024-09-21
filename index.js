@@ -4,19 +4,22 @@ import axios from 'axios';
 import ServerlessHttp from 'serverless-http';
 import { fileURLToPath } from 'url';
 import path from 'path';
+import { configDotenv } from 'dotenv';
+import SendMail from './mail';
 
+configDotenv();
+
+if (!process.env.POSTGRES_URL) {
+    console.error('Missing POSTGRES_URL in .env file');
+    process.exit(1);
+  }
 
 import pg from 'pg';
 
-const db = new pg.Client(
-    {
-        host: 'localhost',
-        user: 'postgres',
-        password: '12345678',
-        database:"Akash",
-        port: 5432
-    }
-);
+const { Pool } = pg;
+const db = new  Pool({
+    connectionString: process.env.POSTGRES_URL,
+  });
 db.connect((err)=>{
     if(err){
         console.log("something went wrong");
@@ -105,15 +108,17 @@ app.get('/linkedin', (req, res) => {
 app.post("/submit-email", (req, res) => {
     res.render('home.ejs',{title:"Home"} );
 });
-app.post("/contactform", (req, res) => {
+app.post("/contactform",  (req, res) => {
     app.use(bodyParser.urlencoded({ extended: true }));
    let  Name = req.body.name;
    let  msg=req.body.message;
    let email = req.body.email;
    let PhoneNumber = req.body.phone
+    // SendMail(name, email, message, phoneNumber);
    
     res.render('contact.ejs',{title:"Contact",response:Name} );
     db.query(`INSERT INTO public.subscribers(
+        
             "Name", email, mobile, message)
             VALUES ($1,$2,$3,$4);`,[Name,email,PhoneNumber,msg],(err)=>{
             console.log("error",err);
