@@ -9,10 +9,10 @@ import SendMail from './mail.js';
 
 configDotenv();
 
-// if (!process.env.POSTGRES_URL) {
-//     console.error('Missing POSTGRES_URL in .env file');
-//     process.exit(1);
-//   }
+if (!process.env.POSTGRES_URL) {
+    console.error('Missing POSTGRES_URL in .env file');
+    process.exit(1);
+  }
 
 import pg from 'pg';
 
