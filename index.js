@@ -16,6 +16,7 @@ const db = new pg.Client(
 db.connect((err)=>{
     if(err){
         console.log("something went wrong");
+        
     }
 });
 
