@@ -2,6 +2,9 @@ import express from 'express';
 import bodyParser from 'body-parser';
 import axios from 'axios';
 import ServerlessHttp from 'serverless-http';
+import { fileURLToPath } from 'url';
+import path from 'path';
+
 
 import pg from 'pg';
 
@@ -22,6 +25,8 @@ db.connect((err)=>{
 });
 
 
+const __dirname = path.dirname(fileURLToPath(import.meta.url));
+
 
 const port =10000;
 const app = express();
@@ -40,11 +45,11 @@ let skillCard =[
     ]
 
 ]
-app.use(express.static(path.join(__dirname, '../public')));
+app.use(express.static(path.join(__dirname, 'public')));
 app.use(bodyParser.urlencoded({ extended: true }));
 
 app.set('view engine', 'ejs');
-app.set('views', path.join(__dirname, '../views'));
+app.set('views', path.join(__dirname, 'views'));
 
 app.get('/', (req, res) => {
     res.render('index.ejs' );
@@ -116,9 +121,9 @@ app.post("/contactform", (req, res) => {
         
 });
 
-export  const handler = ServerlessHttp(app);
+// export  const handler = ServerlessHttp(app);
 // module.exports.handler = ServerlessHttp(app);
-// app.listen(port, (req, res) => {                           
-//     console.log(`Server is running on port ${port}`);
-// });
+app.listen(port, (req, res) => {                           
+    console.log(`Server is running on port ${port}`);
+});
 
