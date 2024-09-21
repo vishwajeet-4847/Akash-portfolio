@@ -8,6 +8,7 @@ import { configDotenv } from 'dotenv';
 import SendMail from './mail.js';
 
 configDotenv();
+configDotenv({ path: './.env.local' });
 
 if (!process.env.POSTGRES_URL) {
     console.error('Missing POSTGRES_URL in .env file');
