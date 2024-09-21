@@ -118,7 +118,7 @@ app.post("/contactform", (req, res) => {
    
     res.render('contact.ejs',{title:"Contact",response:Name} );
     db.query(`INSERT INTO public.subscribers(
-            "Name", email, mobile, message)
+            name, email, mobile, message)
             VALUES ($1,$2,$3,$4);`,[Name,email,PhoneNumber,msg],(err)=>{
             console.log("error",err);
         });
