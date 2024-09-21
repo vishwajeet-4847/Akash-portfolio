@@ -106,7 +106,7 @@ app.get('/linkedin', (req, res) => {
 // post req handling
 
 app.post("/submit-email", (req, res) => {
-    res.render('home.ejs',{title:"Home"} );
+    res.render('home.ejs',{title:"Home",skills:skillCard} );
 });
 app.post("/contactform", (req, res) => {
     app.use(bodyParser.urlencoded({ extended: true }));
@@ -114,15 +114,15 @@ app.post("/contactform", (req, res) => {
    let  msg=req.body.message;
    let email = req.body.email;
    let PhoneNumber = req.body.phone
-//    SendMail(name, email, message, phoneNumber);
+   SendMail(Name, email, msg, PhoneNumber);
    
-    res.render('contact.ejs',{title:"Contact",response:Name} );
+    
     db.query(`INSERT INTO public.subscribers(
             name, email, mobile, message)
             VALUES ($1,$2,$3,$4);`,[Name,email,PhoneNumber,msg],(err)=>{
             console.log("error",err);
         });
-        
+        res.render('contact.ejs',{title:"Contact",response:Name} );
 });
 
 // export  const handler = ServerlessHttp(app);

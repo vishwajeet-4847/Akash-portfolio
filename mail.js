@@ -1,4 +1,7 @@
 import nodemailer from 'nodemailer';
+import { configDotenv } from 'dotenv';
+
+configDotenv();
 
 const SendMail = (name, email, message,phoneNumber) => {
   // Set up Nodemailer transporter
@@ -6,7 +9,7 @@ const SendMail = (name, email, message,phoneNumber) => {
     service: 'gmail',
     auth: {
       user: process.env.USER_EMAIL,
-      pass: 'your-email-password',
+      pass: process.env.USER_PASSWORD,
     },
   });
 
