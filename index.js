@@ -5,7 +5,7 @@ import ServerlessHttp from 'serverless-http';
 import { fileURLToPath } from 'url';
 import path from 'path';
 import { configDotenv } from 'dotenv';
-// import SendMail from './mail';
+import SendMail from './mail.js';
 
 configDotenv();
 
