@@ -113,8 +113,9 @@ app.post("/contactform", (req, res) => {
         
 });
 
-module.exports = app;
-module.exports.handler = ServerlessHttp(app);
+export  const handler = ServerlessHttp(app);
+// module.exports.handler = ServerlessHttp(app);
 // app.listen(port, (req, res) => {                           
 //     console.log(`Server is running on port ${port}`);
 // });
+
