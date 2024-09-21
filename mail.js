@@ -16,7 +16,7 @@ const SendMail = (name, email, message,phoneNumber) => {
   // Set up email options
   const mailOptions = {
     from: email,
-    to: 'AKASH@gmail.com',
+    to:process.env.USER_EMAIL ,
     subject: `${name} submitted form`,
     text: `Name: ${name}\nEmail: ${email}\nMessage: ${message}\n Contact me at ${phoneNumber}`,
   };
