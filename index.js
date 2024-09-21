@@ -1,6 +1,7 @@
 import express from 'express';
 import bodyParser from 'body-parser';
 import axios from 'axios';
+import ServerlessHttp from 'serverless-http';
 
 import pg from 'pg';
 
@@ -112,6 +113,8 @@ app.post("/contactform", (req, res) => {
         
 });
 
-app.listen(port, (req, res) => {                           
-    console.log(`Server is running on port ${port}`);
-});
+module.exports = app;
+module.exports.handler = ServerlessHttp(app);
+// app.listen(port, (req, res) => {                           
+//     console.log(`Server is running on port ${port}`);
+// });
